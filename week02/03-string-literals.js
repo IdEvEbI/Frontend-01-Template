@@ -65,3 +65,11 @@
  * SourceCharacter ::
  *    any Unicode code point
  */
+
+const stringPattern = /?:[^"\n\\\r\u2028\u2029]|\\(?:['"\\bfnrtv\n\r\u2028\u2029]|\r\n)/
+const hexEscapePattern = /\\x[0-9a-fA-F]{2}/
+const unicodeEscapePattern = /\\u[0-9a-fA-F]{4}/
+const escapePattern = /\\[^0-9ux'"\\bfnrtv\n\\\r\u2028\u2029]/
+
+const doublePattern = /"(?:[^"\n\\\r\u2028\u2029]|\\(?:['"\\bfnrtv\n\r\u2028\u2029]|\r\n)|\\x[0-9a-fA-F]{2}|\\u[0-9a-fA-F]{4}|\\[^0-9ux'"\\bfnrtv\n\\\r\u2028\u2029])*"/
+const singlePattern = /'(?:[^'\n\\\r\u2028\u2029]|\\(?:['"\\bfnrtv\n\r\u2028\u2029]|\r\n)|\\x[0-9a-fA-F]{2}|\\u[0-9a-fA-F]{4}|\\[^0-9ux'"\\bfnrtv\n\\\r\u2028\u2029])*'/
