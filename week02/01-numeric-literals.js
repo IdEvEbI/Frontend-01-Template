@@ -73,4 +73,47 @@
  *    0123456789abcdefABCDEF
  */
 
+const successCases = [
+  '1',
+  '.1',
+  '1.1',
+  '1.',
+  '0.1',
+  '1e+3',
+  '1.1E-2',
+  '0b11',
+  '0B1',
+  '0o11',
+  '0O22',
+  '0x1f',
+  '0X1f',
+]
+const failureCases = [
+  '1 ',
+  ' .1',
+  '1 .1',
+  '1. ',
+  '0 .1',
+  '1 e+3',
+  '1.1E -2',
+  '0c11',
+  '0B 11',
+  '0o1f',
+  '0O 72',
+  '0O92',
+  '01f',
+  '0zf',
+  '0 x1fx',
+  '0 x 1f',
+  '0X1fx',
+]
+
+function test(pattern, str) {
+  console.log(str, pattern.test(str))
+}
+
 const pattern = /^(\.\d+|(0|[1-9]\d*)\.?\d*?)([eE][-\+]?\d+)?$|^0[bB][01]+$|^0[oO][0-7]+$|^0[xX][0-9a-fA-F]+$/
+
+successCases.map((e) => test(pattern, e))
+console.log('--- false list test ---')
+failureCases.map((e) => test(pattern, e))
