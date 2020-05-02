@@ -16,6 +16,9 @@
 Array.prototype.map
   .call($0.querySelectorAll('code'), e => e.innerText)
   .join('\n')
+
+// 可以利用 from 简化已上代码
+Array.from($0.querySelectorAll('code'), e => e.innerText).join('\n')
 ```
 
 ## 三. 前端的核心价值
